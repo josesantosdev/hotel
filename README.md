@@ -26,6 +26,10 @@ export FLASK_DEBUG=1
 flask run
 ```
 
+# API Documentation
+
+route:  /api/v1/docs
+
 ### Run unit tests
 ```sh
 pytest
@@ -39,4 +43,4 @@ flask db upgrade
 ```
 
 ### Thanks
-Agradecimento especial aos meus amigos, sem vocês nada disso serial possível.
+Agradecimento especial aos nossos amigos, sem vocês nada disso serial possível.
