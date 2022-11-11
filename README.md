@@ -37,3 +37,6 @@ flask db init
 flask db migrate
 flask db upgrade
 ```
+
+### Thanks
+Agradecimento especial aos meus amigos, sem vocês nada disso serial possível.
