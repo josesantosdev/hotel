@@ -10,11 +10,11 @@
 - Marshmallow
 - Pytest
 
-### Cloning this repo
+### Clone this repo
 
 ```sh
-    git clone git@github.com:josesantosdev/hotel.git #ssh
-    git clone https://github.com/josesantosdev/hotel.git #https
+git clone git@github.com:josesantosdev/hotel.git #ssh
+git clone https://github.com/josesantosdev/hotel.git #https
 ```
 
 ### How to run this project
@@ -26,12 +26,12 @@ export FLASK_DEBUG=1
 flask run
 ```
 
-### To run tests
+### Run unit tests
 ```sh
 pytest
 ```
 
-### Migrations if db is not available
+### Make migrations if db is setup
 ```sh
 flask db init
 flask db migrate
