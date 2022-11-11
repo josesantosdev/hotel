@@ -13,7 +13,8 @@
 ### Cloning this repo
 
 ```sh
-    git clone url_repo
+    git clone git@github.com:josesantosdev/hotel.git #ssh
+    git clone https://github.com/josesantosdev/hotel.git #https
 ```
 
 ### How to run this project
