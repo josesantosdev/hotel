@@ -25,7 +25,10 @@ def create_app():
     # Registro das blueprints
     
     from app.controllers.hospede_contoller import HospedeController
+    from app.controllers.doc_controller import DocumentationControoler
 
     app.register_blueprint(HospedeController.hospede_controller, url_prefix='/api/v1')
+    app.register_blueprint(DocumentationControoler.documentation_controller, url_prefix='/api/v1')
+
 
     return app
