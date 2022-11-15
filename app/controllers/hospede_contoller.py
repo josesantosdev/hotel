@@ -41,7 +41,7 @@ class HospedeController(object):
         hospede = Hospede.query.filter(Hospede.id_hospede == id_hospede)
         hospede.delete()
         db.session.commit()
-        return custom_response({'Deletado':  f'id_hospede: {id_hospede}'}, 201)
+        return custom_response({'Deletado':  f'id_hospede == {id_hospede}'}, 201)
         
 
 
