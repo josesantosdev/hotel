@@ -38,7 +38,6 @@ class QuartoSchema(ma.SQLAlchemyAutoSchema):
         preco = fields.Float()
         custo = fields.Float()
 
-    
     _links = ma.Hyperlinks({
         "colletion": ma.URLFor("quarto_controller.consultar_quarto"),
         "self": ma.URLFor("quarto_controller.consultar_quarto_id", values=dict(id_quarto="<id_quarto>"))
