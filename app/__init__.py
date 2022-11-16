@@ -21,17 +21,33 @@ def create_app():
     # Models
     
     from app.models.hospede_model import Hospede
+    
     from app.models.quarto_model import Quarto
+    
+    from app.models.hospedagem_model import Hospedagem
    
-    # Registro das blueprints
+    #controllers
     
     from app.controllers.hospede_contoller import HospedeController
+    
     from app.controllers.doc_controller import DocumentationControoler
+    
     from app.controllers.quarto_controller import QuartoController
+    
+    from app.controllers.hospedagem_controller import HospedagemController
+    
 
+     # Registro das blueprints
+     
     app.register_blueprint(HospedeController.hospede_controller, url_prefix='/api/v1')
+    
     app.register_blueprint(DocumentationControoler.documentation_controller, url_prefix='/api/v1')
+    
     app.register_blueprint(QuartoController.quarto_controller, url_prefix='/api/v1')
+    
+    app.register_blueprint(HospedagemController.hospedagem_controller, url_prefix='/api/v1')
+    
+    
 
 
     return app
