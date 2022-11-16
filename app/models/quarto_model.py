@@ -1,6 +1,10 @@
 from app import db, ma
+
 from sqlalchemy import Column, BigInteger, String, Float
+
 from marshmallow import fields
+
+from sqlalchemy.orm import relationship
 
 
 class Quarto(db.Model):
@@ -10,7 +14,8 @@ class Quarto(db.Model):
     tipo = Column(String)
     preco = Column(Float)
     custo = Column(Float)
-
+    
+    
     def __init__(self, numero, tipo, preco, custo):
         self.numero = numero
         self.tipo = tipo
