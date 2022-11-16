@@ -1,6 +1,6 @@
 from app import db, ma
 
-from sqlalchemy import Column, BigInteger, DateTime, String, Float
+from sqlalchemy import Column, BigInteger, String, Float, Date
 
 from marshmallow import fields
 
@@ -8,26 +8,35 @@ import datetime
 
 from datetime import timedelta
 
+from app.models.quarto_model import Quarto
+
+
 
 class Hospedagem(db.Model):
     __tablename__ = 'Hospedagem'
     id_hospedagem = Column(BigInteger().with_variant(db.Integer, dialect_name="sqlite"), primary_key=True)
-    checkin = Column(DateTime, nullable=False)
-    checkout = Column(DateTime, nullable=False)
-    id_quarto = Column(String)
-    id_hospede = Column(String)
+    checkin = Column(Date, nullable=False)
+    checkout = Column(Date, nullable=False)
+    quarto = Column(BigInteger)
+    hospede = Column(String)
     dias = Column(BigInteger, nullable=False)
-    custo_total = Column(Float, nullable=False)
-    conta_cliente = Column(Float, nullable=False)
-    hospedagem_liquido = Column(Float, nullable=False)
+    custo_total = Column(BigInteger)
+    conta_cliente = Column(BigInteger)
+    hospedagem_liquido = Column(BigInteger)
     
 
-    def __init__(self, id_quarto, id_hospede, dias):
+    def __init__(self, quarto, hospede, dias):
         self.checkin = datetime.date.today()
-        self.checkout = self.checkin + timedelta(days=self.dias)
-        self.id_quarto = id_quarto
-        self.id_hospede = id_hospede
         self.dias = dias
+        self.checkout = self.checkin + timedelta(days=self.dias)
+        self.quarto = quarto
+        self.hospede = hospede
+        
+        quarto_id = Quarto.quarto_por_id(id_quarto=self.quarto)
+        
+        self.custo_total = quarto_id.custo * self.dias
+        self.conta_cliente = quarto_id.preco * self.dias
+        self.hospedagem_liquido = self.conta_cliente - self.custo_total
         
     def salvar(self):
         db.session.add(self)
@@ -45,11 +54,12 @@ class HospedagemSchema(ma.SQLAlchemyAutoSchema):
         session = db.session
         
         id_hospedagem = fields.Integer(dump_only=True)
-        check_in = fields.DateTime()
-        check_out = fields.DateTime()
-        quarto_id = fields.Integer()
-        hospede_id = fields.Integer()
-        dias = fields.Integer
+        quarto = fields.Integer()
+        hospede = fields.String()
+        dias = fields.Integer()
+        custo_total = fields.Integer(domp_only=True)
+        conta_cliente = fields.Integer(domp_only=True)
+        hospedagem_liquido = fields.Integer(domp_only=True)
         
     _links = ma.Hyperlinks({
         "colletion": ma.URLFor("hospedagem_controller.consultar_hospedagem"),

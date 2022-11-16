@@ -1,10 +1,8 @@
 from app import db, ma
 
-from sqlalchemy import Column, BigInteger, String, Float
+from sqlalchemy import Column, BigInteger, String
 
 from marshmallow import fields
-
-from sqlalchemy.orm import relationship
 
 
 class Quarto(db.Model):
@@ -12,8 +10,8 @@ class Quarto(db.Model):
     id_quarto = Column(BigInteger().with_variant(db.Integer, dialect_name="sqlite"), primary_key=True)
     numero = Column(BigInteger)
     tipo = Column(String)
-    preco = Column(Float)
-    custo = Column(Float)
+    preco = Column(BigInteger)
+    custo = Column(BigInteger)
     
     
     def __init__(self, numero, tipo, preco, custo):
@@ -29,6 +27,10 @@ class Quarto(db.Model):
 
     def __repr__(self) -> str:
         return f'<id_quarto: {self.id_quarto}>'
+    
+    @staticmethod
+    def quarto_por_id(id_quarto):
+        return Quarto.query.filter(Quarto.id_quarto==id_quarto).first()
 
 
 class QuartoSchema(ma.SQLAlchemyAutoSchema):
@@ -40,8 +42,8 @@ class QuartoSchema(ma.SQLAlchemyAutoSchema):
         id_quarto = fields.Integer(dump_only=True)
         numero = fields.Integer()
         tipo = fields.Str()
-        preco = fields.Float()
-        custo = fields.Float()
+        preco = fields.Integer()
+        custo = fields.Integer()
 
     _links = ma.Hyperlinks({
         "colletion": ma.URLFor("quarto_controller.consultar_quarto"),

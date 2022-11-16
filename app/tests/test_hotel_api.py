@@ -19,8 +19,8 @@ def client(app):
 def runner(app):
     return app.test_cli_runner()
 
-
-def test_todos_hospedes(client):
+#test hospede Controllers
+def test_consultar_todos_hospedes(client):
     response = client.get('http://127.0.0.1:5000/api/v1/hospede/consultar')
     data = json.loads(response.data.decode('utf-8'))
     assert type(data) == list
@@ -29,7 +29,7 @@ def test_todos_hospedes(client):
     assert response.status_code == 200
     
 
-def test_hospedes_por_id(client):
+def test_consultar_hospedes_por_id(client):
     response = client.get('http://127.0.0.1:5000/api/v1/hospede/consultar/3')
     data = json.loads(response.data.decode('utf-8'))
     assert type(data) == dict
