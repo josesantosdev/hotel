@@ -2,14 +2,7 @@ from app import db, ma
 
 from sqlalchemy import Column, BigInteger, String, Date
 
-from marshmallow import fields
-
-import datetime
-
 from app.models.quarto_model import Quarto
-
-
-
 
 
 class Reserva(db.Model):
@@ -19,7 +12,7 @@ class Reserva(db.Model):
     quarto = Column(BigInteger)
     hospede_cpf = Column(String)
 
-    def __init__(self,id_reserva, checkin, quarto, hospede_cpf):
+    def __init__(self, id_reserva, checkin, quarto, hospede_cpf):
         self.id_reserva = id_reserva
         self.checkin = checkin
         self.quarto = Quarto.quarto_por_id(quarto)
@@ -30,6 +23,7 @@ class Reserva(db.Model):
         db.session.commit()
         return self
 
+
 class ReservaSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
 
@@ -37,16 +31,7 @@ class ReservaSchema(ma.SQLAlchemyAutoSchema):
         load_instance = True
         sqla_session = db.session
 
-    '''_links = ma.Hyperlinks({
+    _links = ma.Hyperlinks({
         "colletion": ma.URLFor("reserva_controller.consultar_reserva"),
         "self": ma.URLFor("reserva_controller.consultar_reserva_id", values=dict(id_reserva="<id_reserva>"))
-    })'''
-
-       
-
-
-
-
-
-        
- 
+    })

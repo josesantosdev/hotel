@@ -33,7 +33,7 @@ class HospedagemController(object):
         hospede_schema = HospedagemSchema(partial=False)
         query = Hospedagem.query.filter(Hospedagem.id_hospedagem == id_hospedagem)
         query.update(request.get_json())
-        return custom_response(hospede_schema.dump(query.fisrt()), 201)
+        return custom_response(hospede_schema.dump(query.first()), 201)
 
     @hospedagem_controller.route('/hospedagem/deletar/<id_hospedagem>', methods=['DELETE'])
     def deletar_hospedagem(id_hospedagem):

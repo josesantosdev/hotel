@@ -57,9 +57,9 @@ class HospedagemSchema(ma.SQLAlchemyAutoSchema):
         quarto = fields.Integer()
         hospede = fields.String()
         dias = fields.Integer()
-        custo_total = fields.Integer(domp_only=True)
-        conta_cliente = fields.Integer(domp_only=True)
-        hospedagem_liquido = fields.Integer(domp_only=True)
+        custo_total = fields.Integer(load_only=True)
+        conta_cliente = fields.Integer(load_only=True)
+        hospedagem_liquido = fields.Integer(load_only=True)
         
     _links = ma.Hyperlinks({
         "colletion": ma.URLFor("hospedagem_controller.consultar_hospedagem"),
@@ -71,4 +71,4 @@ class HospedagemSchema(ma.SQLAlchemyAutoSchema):
         
         
     
-    
+     

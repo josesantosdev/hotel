@@ -10,6 +10,40 @@
 			"name": "Hospede",
 			"item": [
 				{
+					"name": "POST Hospede",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"nome\": \"String\",\n    \"cpf\": \"String\",\n    \"endereco\": \"String\",\n    \"email\": \"email@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/hospede/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"hospede",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GET Hospede by id",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -27,7 +61,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/v1/hospede/consultar/3",
+							"raw": "http://127.0.0.1:5000/api/v1/hospede/consultar/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -41,7 +75,7 @@
 								"v1",
 								"hospede",
 								"consultar",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -86,7 +120,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \n    \"cpf\": \"String\",\n    \"email\": \"email@email.com\",\n    \"endereco\": \"String\",\n    \"nome\": \"String\"\n}",
+							"raw": "{ \n    \"cpf\": \"String2\",\n    \"email\": \"email@email12223.com\",\n    \"endereco\": \"String\",\n    \"nome\": \"String\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -94,7 +128,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/v1/hospede/atualizar/3",
+							"raw": "http://127.0.0.1:5000/api/v1/hospede/atualizar/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -108,41 +142,7 @@
 								"v1",
 								"hospede",
 								"atualizar",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Hospede",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{ \n    \"cpf\": \"String\",\n    \"email\": \"email@email.com\",\n    \"endereco\": \"String\",\n    \"nome\": \"String\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/api/v1/hospede/cadastrar",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
 								"1"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"v1",
-								"hospede",
-								"cadastrar"
 							]
 						}
 					},
@@ -154,7 +154,45 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/v1/hospede/deletar/3",
+							"raw": "https://boiling-beach-14202.herokuapp.com/api/v1/hospede/deletar/1",
+							"protocol": "https",
+							"host": [
+								"boiling-beach-14202",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"hospede",
+								"deletar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quarto",
+			"item": [
+				{
+					"name": "POST Quarto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"numero\": 2,\n    \"tipo\": \"Suite\",\n    \"preco\": 500,\n    \"custo\": 150\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/quarto/cadastrar",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -166,7 +204,476 @@
 							"path": [
 								"api",
 								"v1",
-								"hospede",
+								"quarto",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Quarto by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/quarto/consultar/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"quarto",
+								"consultar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Quato",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/quarto/consultar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"quarto",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Quarto by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"numero\": 101,\n    \"tipo\": \"Suite\",\n    \"preco\": 500,\n    \"custo\": 150\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/quarto/atualizar/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"quarto",
+								"atualizar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Quato",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/quarto/deletar/9",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"quarto",
+								"deletar",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hospedagem",
+			"item": [
+				{
+					"name": "POST Hospedagem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"quarto\": 1,\n    \"hospede\": \"José\",\n    \"dias\": 7\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/hospedagem/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"hospedagem",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Hospedagem by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/hospedagem/consultar/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"hospedagem",
+								"consultar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Hospedagem",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/hospedagem/consultar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"hospedagem",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Hospedagem by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"numero\": 303,\n    \"tipo\": \"Suite\",\n    \"preco\": 500.0,\n    \"custo\": 150.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/quarto/atualizar/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"quarto",
+								"atualizar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Hospedagem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/hospedagem/deletar/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"hospedagem",
+								"deletar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reserva Hospedagem",
+			"item": [
+				{
+					"name": "POST Reserva Hospedagem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"quarto\": 1,\n    \"hospede\": \"José\",\n    \"dias\": 7\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reserva/cadastrar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reserva",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Reserva Hospedagem by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reserva/consultar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reserva",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Reserva Hospedagem",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reserva/consultar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reserva",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Reserva Hospedagem by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"quarto\": 1,\n    \"hospede\": \"José\",\n    \"dias\": 7\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reserva/atualizar/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reserva",
+								"atualizar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Reserva Hospedagem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reserva/deletar/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reserva",
 								"deletar",
 								"3"
 							]
