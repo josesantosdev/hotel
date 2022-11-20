@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \n    \"nome\": \"String\",\n    \"cpf\": \"String\",\n    \"endereco\": \"String\",\n    \"email\": \"email@email.com\"\n}",
+							"raw": "{ \n    \"nome\": \"String\",\n    \"cpf\": \"String\",\n    \"endereco\": \"String\",\n    \"email\": \"email@email2.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -354,7 +354,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \n    \"quarto\": 1,\n    \"hospede\": \"José\",\n    \"dias\": 7\n\n}",
+							"raw": "{ \n    \"quarto\": 2,\n    \"hospede\": \"José\",\n    \"dias\": 7\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -420,6 +420,45 @@
 					"response": []
 				},
 				{
+					"name": "GET Fechar Hospedagem by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/hospedagem/fechar/conta/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"hospedagem",
+								"fechar",
+								"conta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GET Hospedagem",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -458,7 +497,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \n    \"numero\": 303,\n    \"tipo\": \"Suite\",\n    \"preco\": 500.0,\n    \"custo\": 150.0\n}",
+							"raw": "{ \n    \"quarto\": 1,\n    \"hospede\": \"José\",\n    \"dias\": 7\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -524,7 +563,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \n    \"quarto\": 1,\n    \"hospede\": \"José\",\n    \"dias\": 7\n\n}",
+							"raw": "{ \n    \"quarto\": 2,\n    \"checkin\": \"2022-11-21\"\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -601,7 +640,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/v1/reserva/consultar",
+							"raw": "http://127.0.0.1:5000/api/v1/reserva/consultar/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -614,7 +653,8 @@
 								"api",
 								"v1",
 								"reserva",
-								"consultar"
+								"consultar",
+								"1"
 							]
 						}
 					},
@@ -627,7 +667,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \n    \"quarto\": 1,\n    \"hospede\": \"José\",\n    \"dias\": 7\n\n}",
+							"raw": "{ \n    \"quarto\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -635,7 +675,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/v1/reserva/atualizar/3",
+							"raw": "http://127.0.0.1:5000/api/v1/reserva/atualizar/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -649,7 +689,7 @@
 								"v1",
 								"reserva",
 								"atualizar",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -661,7 +701,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/api/v1/reserva/deletar/3",
+							"raw": "http://127.0.0.1:5000/api/v1/reserva/deletar/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -675,7 +715,7 @@
 								"v1",
 								"reserva",
 								"deletar",
-								"3"
+								"2"
 							]
 						}
 					},
