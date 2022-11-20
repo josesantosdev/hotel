@@ -208,9 +208,8 @@ def test_deletar_hospedagem(client):
 def test_cadastrar_reserva(client):
 
     payload = json.dumps({
-        "quarto": 1,
-        "hospede": "José",
-        "dias": 7
+        "quarto": 2,
+        "checkin": "2022-11-21"
     })
 
     header = {"Content-Type": "application/json"}
@@ -240,13 +239,11 @@ def test_alterar_reserva(client):
 
     payload = json.dumps({
         "quarto": 2,
-        "hospede": "José",
-        "dias": 7
     })
 
     header = {"Content-Type": "application/json"}
     response = client.put(
-        "http://127.0.0.1:5000/api/v1/reserva/atualizar/3",
+        "http://127.0.0.1:5000/api/v1/reserva/atualizar/1",
         data=payload,
         headers=header)
 
@@ -254,5 +251,5 @@ def test_alterar_reserva(client):
 
 
 def test_deletar_reserva(client):
-    response = client.delete('http://127.0.0.1:5000/api/v1/reserva/deletar/3')
+    response = client.delete('http://127.0.0.1:5000/api/v1/reserva/deletar/1')
     assert response.status_code == 201

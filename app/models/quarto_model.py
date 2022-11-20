@@ -1,6 +1,6 @@
 from app import db, ma
 
-from sqlalchemy import Column, BigInteger, String
+from sqlalchemy import Column, BigInteger, String, Boolean
 
 from marshmallow import fields
 
@@ -12,6 +12,7 @@ class Quarto(db.Model):
     tipo = Column(String)
     preco = Column(BigInteger)
     custo = Column(BigInteger)
+    disponibilidade = Column(Boolean)
     
     
     def __init__(self, numero, tipo, preco, custo):
@@ -19,7 +20,15 @@ class Quarto(db.Model):
         self.tipo = tipo
         self.preco = preco
         self.custo = custo
+        self.disponibilidade = True
+        
+    
 
+    def set_disponibilidade(self, disponibilidade):
+        self.disponibilidade = disponibilidade
+        db.session.add(self)
+        db.session.commit()
+        
     def salvar(self):
         db.session.add(self)
         db.session.commit()

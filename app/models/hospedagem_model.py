@@ -1,6 +1,6 @@
 from app import db, ma
 
-from sqlalchemy import Column, BigInteger, String, Float, Date
+from sqlalchemy import Column, BigInteger, String, Date
 
 from marshmallow import fields
 
