@@ -25,6 +25,8 @@ def create_app():
     from app.models.quarto_model import Quarto
     
     from app.models.hospedagem_model import Hospedagem
+    
+    from app.models.reserva_hospedagem_model import Reserva
    
     #controllers
     
@@ -36,6 +38,7 @@ def create_app():
     
     from app.controllers.hospedagem_controller import HospedagemController
     
+    from app.controllers.reserva_hospedagem_controller import ReservaController
 
      # Registro das blueprints
      
@@ -47,6 +50,7 @@ def create_app():
     
     app.register_blueprint(HospedagemController.hospedagem_controller, url_prefix='/api/v1')
     
+    app.register_blueprint(ReservaController.reserva_controller, url_prefix='/api/v1')
     
 
 
