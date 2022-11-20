@@ -65,7 +65,7 @@ def test_alterar_hospede(client):
         "nome": "String2",
         "cpf": "String2",
         "endereco": "String",
-        "email": "email@email11.com"
+        "email": "email@email111.com"
     })
 
     header = {"Content-Type": "application/json"}
@@ -208,15 +208,14 @@ def test_deletar_hospedagem(client):
 def test_cadastrar_reserva(client):
 
     payload = json.dumps({
-        "nome": "String",
-        "cpf": "String",
-        "endereco": "String",
-        "email": "email@email11.com"
+        "quarto": 1,
+        "hospede": "José",
+        "dias": 7
     })
 
     header = {"Content-Type": "application/json"}
     response = client.post(
-        "http://127.0.0.1:5000/api/v1/hospede/cadastrar",
+        "http://127.0.0.1:5000/api/v1/reserva/cadastrar",
         data=payload,
         headers=header)
 
@@ -224,14 +223,14 @@ def test_cadastrar_reserva(client):
 
 
 def test_consultar_todos_reserva(client):
-    response = client.get('http://127.0.0.1:5000/api/v1/hospede/consultar')
+    response = client.get('http://127.0.0.1:5000/api/v1/reserva/consultar')
     data = json.loads(response.data.decode('utf-8'))
     assert type(data) == list
     assert response.status_code == 200
 
 
 def test_consultar_reserva_por_id(client):
-    response = client.get('http://127.0.0.1:5000/api/v1/hospede/consultar/1')
+    response = client.get('http://127.0.0.1:5000/api/v1/reserva/consultar/1')
     data = json.loads(response.data.decode('utf-8'))
     assert type(data) == dict
     assert response.status_code == 200
@@ -240,15 +239,14 @@ def test_consultar_reserva_por_id(client):
 def test_alterar_reserva(client):
 
     payload = json.dumps({
-        "nome": "String2",
-        "cpf": "String2",
-        "endereco": "String",
-        "email": "email@email11.com"
+        "quarto": 2,
+        "hospede": "José",
+        "dias": 7
     })
 
     header = {"Content-Type": "application/json"}
     response = client.put(
-        "http://127.0.0.1:5000/api/v1/hospede/atualizar/1",
+        "http://127.0.0.1:5000/api/v1/reserva/atualizar/3",
         data=payload,
         headers=header)
 
@@ -256,5 +254,5 @@ def test_alterar_reserva(client):
 
 
 def test_deletar_reserva(client):
-    response = client.delete('http://127.0.0.1:5000/api/v1/hospede/deletar/1')
+    response = client.delete('http://127.0.0.1:5000/api/v1/reserva/deletar/3')
     assert response.status_code == 201
