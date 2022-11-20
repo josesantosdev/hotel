@@ -1,6 +1,10 @@
 from app import db, ma
+
 from sqlalchemy import Column, BigInteger, String
+
 from marshmallow import fields
+
+
 
 
 class Hospede(db.Model):
@@ -12,6 +16,7 @@ class Hospede(db.Model):
     endereco = Column(String)
     email = Column(String, nullable=False)
 
+    
     def __init__(self, nome, cpf, endereco, email):
         self.nome = nome
         self.cpf = cpf
@@ -32,6 +37,7 @@ class HospedeSchema(ma.SQLAlchemyAutoSchema):
         model = Hospede
         load_instance = True
         sqla_session = db.session
+        include_relationships = True
 
         id_hospede = fields.Integer(dump_only=True)
         nome = fields.Str()
