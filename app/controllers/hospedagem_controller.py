@@ -41,6 +41,14 @@ class HospedagemController(object):
         hospedagem.delete()
         db.session.commit()
         return custom_response({'Deletado':  f'id_hospedagem == {id_hospedagem}'}, 201)
+    
+    @hospedagem_controller.route('hospedagem/fechar/conta/<id_hospedagem>', methods=['GET'])
+    def fechar_conta_hospedagem(id_hospedagem):
+        hospedagem = Hospedagem.query.filter_by(id_hospedagem = id_hospedagem).first()
+        hospedagem_schema = HospedagemSchema(partial=True)
+        data = hospedagem_schema.dump(hospedagem)
+        return custom_response({"Cliente": data['hospede'],
+                                "Valor a Pagar": data['conta_cliente']}, 201)
 
 
 def custom_response(res, status_code):
