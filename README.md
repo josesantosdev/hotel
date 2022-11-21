@@ -23,6 +23,7 @@ pip install pipenv
 pipenv install -r requirements.txt
 export FLASK_APP=app
 export FLASK_DEBUG=1
+pipenv shell
 flask run
 ```
 
