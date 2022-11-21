@@ -18,10 +18,11 @@ class Reserva(db.Model):
     def __init__(self, checkin, quarto):
         self.checkin = checkin
         self.quarto = quarto
+        quarto = Quarto.quarto_por_id(id_quarto=quarto)
         
-        if datetime.date.today() == checkin:
-            quarto = Quarto.quarto_por_id(id_quarto=quarto)
-            quarto.set_disponibilidade(False)
+        if quarto:
+            if datetime.date.today() == checkin:
+                quarto.set_disponibilidade(False)
         
     def consultar_reserva(self, checkin):
         reserva = db.session.query(Reserva).filter(Reserva.checkin == checkin)

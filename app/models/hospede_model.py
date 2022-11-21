@@ -14,7 +14,7 @@ class Hospede(db.Model):
     nome = Column(String, nullable=False)
     cpf = Column(String)
     endereco = Column(String)
-    email = Column(String, nullable=False, unique=True)
+    email = Column(String, nullable=False)
 
     
     def __init__(self, nome, cpf, endereco, email):
