@@ -2,6 +2,12 @@
 - Projeto proposto na UC Gestão de Qualidade de Software.
 - API RESTfull para gestão das hospedagens de um hotel.
 
+# Autors
+- [Edvânia Nascimento](https://github.com/edvanianascimento)
+- [José Santos](https://github.com/josesantosdev)
+- [Lucas Costa](https://github.com/LucasTri23)
+
+
 ### Dependencies
 - Flask
 - SQLAlchemy
@@ -36,7 +42,7 @@ route:  /api/v1/docs
 pytest
 ```
 
-### Make migrations if db is setup
+### Make migrations if db is not setup
 ```sh
 flask db init
 flask db migrate
